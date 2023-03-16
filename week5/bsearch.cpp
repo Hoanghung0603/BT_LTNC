@@ -4,15 +4,16 @@
 using namespace std;
 
 int bsearch(vector<int> arr, int key,int n){
+    int* ptr = &arr[0];
     int l=0;
     int r=n-1;
     int mid;
     while(l<=r){
        mid = (l+r)/2;
-       if (arr[mid]==key) return mid;
+       if (*(ptr+mid)==key) return mid;
        else if(l>r) return -1;
-       else if(arr[mid]>key) r=mid-1;
-       else if(key>arr[mid]) l=mid+1;
+       else if(*(ptr+mid)>key) r=mid-1;
+       else if(key>*(ptr+mid)) l=mid+1;
     }
 
 }
